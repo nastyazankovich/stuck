@@ -8,7 +8,7 @@ class StackOverflowSpider(scrapy.Spider):
     def parse(self, response):
         questions = response.css('.question-summary')
         for question in questions:
-            title = question.css('.question-hyperlink::text').get()
+            title = question.css('.title::text').get()
             description = question.css('.excerpt::text').get()
             yield {
                 'title': title,
